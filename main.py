@@ -124,9 +124,8 @@ def main(page: ft.Page):
     )
 
     boton_cargar = ft.ElevatedButton(
-    content="Cargar Hex",
-    on_click=cargar_hex,
-
+        content="Cargar Hex",
+        on_click= cargar_hex,
     )
 
     panel_control = ft.Column(
@@ -148,5 +147,13 @@ def main(page: ft.Page):
             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         )
     )
+
+import flet_web
+web_dir = os.path.join(os.path.dirname(flet_web.__file__), "web")
+print("DEBUG - carpeta web de flet_web:", web_dir)
+print("DEBUG - existe la carpeta:", os.path.exists(web_dir))
+if os.path.exists(web_dir):
+    print("DEBUG - contenido:", os.listdir(web_dir))
+print("DEBUG - existe flutter_bootstrap.js:", os.path.exists(os.path.join(web_dir, "flutter_bootstrap.js")))
 
 ft.app(target=main, view=ft.AppView.WEB_BROWSER, host="0.0.0.0", port=int(os.environ.get("PORT", 8550)))
