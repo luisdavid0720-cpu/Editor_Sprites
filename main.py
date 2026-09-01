@@ -1,4 +1,5 @@
 import flet as ft
+import os
 
 COLOR_APAGADO = "#1a1a2e"   
 COLOR_ENCENDIDO = "#39ff14" 
@@ -148,4 +149,4 @@ def main(page: ft.Page):
         )
     )
 
-ft.app(target=main)
+ft.app(target=main, view=ft.AppView.WEB_BROWSER, host="0.0.0.0", port=int(os.environ.get("PORT", 8550)))
